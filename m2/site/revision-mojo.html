@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Maven SVN Revision Number Plugin - svn-revision-number:revision</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                    <span id="bannerLeft">
+    
+            Maven SVN Revision Number Plugin
+    
+            </span>
+                    <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+            
+  
+    
+              <div class="xright">      
+  
+
+  
+    
+            
+  
+    
+             Last Published: 2009-09-25
+              &nbsp;| Version: 1.0
+            </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+            
+  
+    
+                   <h5>Overview</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="index.html">Introduction</a>
+          </li>
+              
+    <li class="none">
+                    <a href="plugin-info.html">Goals</a>
+          </li>
+          </ul>
+              <h5>Project Documentation</h5>
+            <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+                    <a href="project-info.html">Project Information</a>
+                </li>
+              
+                
+              
+      
+              
+        <li class="collapsed">
+                    <a href="project-reports.html">Project Reports</a>
+                </li>
+          </ul>
+                                           <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+          </a>
+                       
+  
+
+  
+    
+            
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2><a name="svn-revision-number:revision"></a>svn-revision-number:revision</h2>
+<p><strong>Full name</strong>:</p>
+<p>com.google.code.maven-svn-revision-number-plugin:maven-svn-revision-number-plugin:1.0:revision</p>
+<p><strong>Description</strong>:</p>
+<div>Retrieves the status and revision number of the subversion working
+copy directory.</div><p><strong>Attributes</strong>:</p>
+<ul><li>Requires a Maven 2.0 project to be executed.</li>
+<li>Binds by default to the lifecycle phase: <code>initialize</code>.</li>
+</ul>
+<div class="section"><h3><a name="Required_Parameters"></a>Required Parameters</h3>
+<table class="bodyTable"><tr class="a"><th>Name</th>
+<th>Type</th>
+<th>Since</th>
+<th>Description</th>
+</tr>
+<tr class="b"><td><strong><a href="#workingCopyDirectory">workingCopyDirectory</a></strong></td>
+<td><code>File</code></td>
+<td><code>-</code></td>
+<td>The subversion working copy directory. The plugin will evaluate the
+aggregated status and revision number of this directory and its
+contents.<br />
+<strong>Default value is</strong>: <code>${basedir}</code>.</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="Optional_Parameters"></a>Optional Parameters</h3>
+<table class="bodyTable"><tr class="a"><th>Name</th>
+<th>Type</th>
+<th>Since</th>
+<th>Description</th>
+</tr>
+<tr class="b"><td><strong><a href="#pathPropertyName">pathPropertyName</a></strong></td>
+<td><code>String</code></td>
+<td><code>-</code></td>
+<td>The name of the property that will contain the path of the working
+copy directory entry relative to the root of the remote repository.<br />
+<strong>Default value is</strong>: <code>workingCopyDirectory.path</code>.</td>
+</tr>
+<tr class="a"><td><strong><a href="#reportIgnored">reportIgnored</a></strong></td>
+<td><code>boolean</code></td>
+<td><code>-</code></td>
+<td>Whether to collect the status information on items that were set to
+be ignored.<br />
+<strong>Default value is</strong>: <code>false</code>.</td>
+</tr>
+<tr class="b"><td><strong><a href="#reportMixedRevisions">reportMixedRevisions</a></strong></td>
+<td><code>boolean</code></td>
+<td><code>-</code></td>
+<td>Whether to report the mixed revisions information. If set to
+<code>false</code> then only the maximum revision number will be
+reported.<br />
+<strong>Default value is</strong>: <code>true</code>.</td>
+</tr>
+<tr class="a"><td><strong><a href="#reportOutOfDate">reportOutOfDate</a></strong></td>
+<td><code>boolean</code></td>
+<td><code>-</code></td>
+<td>Whether to check the remote repository and report if the local
+items are out-of-date.<br />
+<strong>Default value is</strong>: <code>false</code>.</td>
+</tr>
+<tr class="b"><td><strong><a href="#reportStatus">reportStatus</a></strong></td>
+<td><code>boolean</code></td>
+<td><code>-</code></td>
+<td>Whether to report the status information. If set to
+<code>false</code> then only the revision number will be reported.<br />
+<strong>Default value is</strong>: <code>true</code>.</td>
+</tr>
+<tr class="a"><td><strong><a href="#reportUnversioned">reportUnversioned</a></strong></td>
+<td><code>boolean</code></td>
+<td><code>-</code></td>
+<td>Whether to collect the status information on items that are not
+under version control.<br />
+<strong>Default value is</strong>: <code>true</code>.</td>
+</tr>
+<tr class="b"><td><strong><a href="#repositoryPropertyName">repositoryPropertyName</a></strong></td>
+<td><code>String</code></td>
+<td><code>-</code></td>
+<td>The name of the property that will contain the root of the remote
+repository of the working copy directory entry.<br />
+<strong>Default value is</strong>: <code>workingCopyDirectory.repository</code>.</td>
+</tr>
+<tr class="a"><td><strong><a href="#revisionPropertyName">revisionPropertyName</a></strong></td>
+<td><code>String</code></td>
+<td><code>-</code></td>
+<td>The name of the property that will contain the aggregated status
+and revision number of the working copy directory.<br />
+<strong>Default value is</strong>: <code>workingCopyDirectory.revision</code>.</td>
+</tr>
+<tr class="b"><td><strong><a href="#verbose">verbose</a></strong></td>
+<td><code>boolean</code></td>
+<td><code>-</code></td>
+<td>Provides detailed messages while this goal is running.<br />
+<strong>Default value is</strong>: <code>false</code>.</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="Parameter_Details"></a>Parameter Details</h3>
+<p><strong><a name="pathPropertyName">pathPropertyName</a>:</strong></p>
+<div>The name of the property that will contain the path of the working
+copy directory entry relative to the root of the remote repository.</div><ul><li><strong>Type</strong>: <code>java.lang.String</code></li>
+<li><strong>Required</strong>: <code>No</code></li>
+<li><strong>Expression</strong>: <code>${pathPropertyName}</code></li>
+<li><strong>Default</strong>: <code>workingCopyDirectory.path</code></li>
+</ul>
+<hr />
+<p><strong><a name="reportIgnored">reportIgnored</a>:</strong></p>
+<div>Whether to collect the status information on items that were set to
+be ignored.</div><ul><li><strong>Type</strong>: <code>boolean</code></li>
+<li><strong>Required</strong>: <code>No</code></li>
+<li><strong>Expression</strong>: <code>${reportIgnored}</code></li>
+<li><strong>Default</strong>: <code>false</code></li>
+</ul>
+<hr />
+<p><strong><a name="reportMixedRevisions">reportMixedRevisions</a>:</strong></p>
+<div>Whether to report the mixed revisions information. If set to
+<code>false</code> then only the maximum revision number will be
+reported.</div><ul><li><strong>Type</strong>: <code>boolean</code></li>
+<li><strong>Required</strong>: <code>No</code></li>
+<li><strong>Expression</strong>: <code>${reportMixedRevisions}</code></li>
+<li><strong>Default</strong>: <code>true</code></li>
+</ul>
+<hr />
+<p><strong><a name="reportOutOfDate">reportOutOfDate</a>:</strong></p>
+<div>Whether to check the remote repository and report if the local
+items are out-of-date.</div><ul><li><strong>Type</strong>: <code>boolean</code></li>
+<li><strong>Required</strong>: <code>No</code></li>
+<li><strong>Expression</strong>: <code>${reportOutOfDate}</code></li>
+<li><strong>Default</strong>: <code>false</code></li>
+</ul>
+<hr />
+<p><strong><a name="reportStatus">reportStatus</a>:</strong></p>
+<div>Whether to report the status information. If set to
+<code>false</code> then only the revision number will be reported.</div><ul><li><strong>Type</strong>: <code>boolean</code></li>
+<li><strong>Required</strong>: <code>No</code></li>
+<li><strong>Expression</strong>: <code>${reportStatus}</code></li>
+<li><strong>Default</strong>: <code>true</code></li>
+</ul>
+<hr />
+<p><strong><a name="reportUnversioned">reportUnversioned</a>:</strong></p>
+<div>Whether to collect the status information on items that are not
+under version control.</div><ul><li><strong>Type</strong>: <code>boolean</code></li>
+<li><strong>Required</strong>: <code>No</code></li>
+<li><strong>Expression</strong>: <code>${reportUnversioned}</code></li>
+<li><strong>Default</strong>: <code>true</code></li>
+</ul>
+<hr />
+<p><strong><a name="repositoryPropertyName">repositoryPropertyName</a>:</strong></p>
+<div>The name of the property that will contain the root of the remote
+repository of the working copy directory entry.</div><ul><li><strong>Type</strong>: <code>java.lang.String</code></li>
+<li><strong>Required</strong>: <code>No</code></li>
+<li><strong>Expression</strong>: <code>${repositoryPropertyName}</code></li>
+<li><strong>Default</strong>: <code>workingCopyDirectory.repository</code></li>
+</ul>
+<hr />
+<p><strong><a name="revisionPropertyName">revisionPropertyName</a>:</strong></p>
+<div>The name of the property that will contain the aggregated status
+and revision number of the working copy directory.</div><ul><li><strong>Type</strong>: <code>java.lang.String</code></li>
+<li><strong>Required</strong>: <code>No</code></li>
+<li><strong>Expression</strong>: <code>${revisionPropertyName}</code></li>
+<li><strong>Default</strong>: <code>workingCopyDirectory.revision</code></li>
+</ul>
+<hr />
+<p><strong><a name="verbose">verbose</a>:</strong></p>
+<div>Provides detailed messages while this goal is running.</div><ul><li><strong>Type</strong>: <code>boolean</code></li>
+<li><strong>Required</strong>: <code>No</code></li>
+<li><strong>Expression</strong>: <code>${verbose}</code></li>
+<li><strong>Default</strong>: <code>false</code></li>
+</ul>
+<hr />
+<p><strong><a name="workingCopyDirectory">workingCopyDirectory</a>:</strong></p>
+<div>The subversion working copy directory. The plugin will evaluate the
+aggregated status and revision number of this directory and its
+contents.</div><ul><li><strong>Type</strong>: <code>java.io.File</code></li>
+<li><strong>Required</strong>: <code>Yes</code></li>
+<li><strong>Expression</strong>: <code>${workingCopyDirectory}</code></li>
+<li><strong>Default</strong>: <code>${basedir}</code></li>
+</ul>
+</div>
+</div>
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2009
+    
+          
+  
+
+  
+    
+            
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>
