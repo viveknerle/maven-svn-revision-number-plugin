@@ -68,7 +68,7 @@ Depending on the state of the working copy directory the revision property will 
 
   * `"unversioned"` - the directory is not under version control.
   * `"rNNN"` - the working copy is up-to-date and has no local modifications. The `NNN` is the working copy revision number.
-  * `"rNNN-rMMM"` - the reporting of mixed revisions is on and the working copy contains [http://svnbook.red-bean.com/nightly/en/svn.basic.in-action.html#svn.basic.in-action.mixedrevs}mixed revisions] but otherwise has no local modifications.
+  * `"rNNN-rMMM"` - the reporting of mixed revisions is on and the working copy contains [http://svnbook.red-bean.com/nightly/en/svn.basic.in-action.html#svn.basic.in-action.mixedrevs mixed revisions] but otherwise has no local modifications.
 The `NNN` is the maximum revision number and `MMM` is the minimum revision number in the working copy. The reporting of mixed revisions is on by default.
 
 If reporting of working copy status is on and the working copy directory has uncommitted local modifications or is out-of-date, then an additional status information is appended to the `"rNNN"` or `"rNNN-rMMM"` value specified above in the form of `"rNNN SSS"` or `"rNNN-rMMM SSS"`, where `SSS` consists of one or more of the following characters:
