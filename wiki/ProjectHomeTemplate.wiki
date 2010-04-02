@@ -1,9 +1,0 @@
-#summary Versioned template for the project home page.
-
-= Maven SVN Revision Number Plugin =
-
-This plugin retrieves the revision number and the status of the Subversion working copy directory and creates project properties that can be used later in the build process, for example to filter resource files or to activate additional profiles.
-
-The [http://svnkit.com SVNKit] library is used for all Subversion-related operations.
-
-Instructions on how to use the plugin can be found in the [http://maven-svn-revision-number-plugin.googlecode.com/svn/site/index.html documentation].
