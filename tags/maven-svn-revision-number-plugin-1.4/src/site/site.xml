@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <publishDate position="right"/>
+    <version position="right"/>
+
+    <body>
+        <menu name="Overview">
+            <item name="Introduction" href="index.html"/>
+            <item name="Goals" href="plugin-info.html"/>
+            <item name="Usage" href="usage.html"/>
+        </menu>
+
+        <menu name="Examples">
+            <item name="Storing output properties in a file" href="examples/resource_filtering.html"/>
+        </menu>
+
+        <menu ref="reports"/>
+    </body>
+</project>
