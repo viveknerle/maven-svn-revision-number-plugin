@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Maven SVN Revision Number Plugin - Storing output properties in the resource file</title>
+    <title>Maven SVN Revision Number Plugin - Adding the revision number to the project artifact name</title>
     <style type="text/css" media="all">
       @import url("../css/maven-base.css");
       @import url("../css/maven-theme.css");
@@ -56,11 +56,11 @@
                        <h5>Examples</h5>
                   <ul>
                   <li class="none">
-            <strong>Storing output properties in a file</strong>
-          </li>
-                  <li class="none">
-                          <a href="../examples/artifact_name.html" title="Adding the revision number to the artifact name">Adding the revision number to the artifact name</a>
+                          <a href="../examples/resource_filtering.html" title="Storing output properties in a file">Storing output properties in a file</a>
             </li>
+                  <li class="none">
+            <strong>Adding the revision number to the artifact name</strong>
+          </li>
           </ul>
                        <h5>Project Documentation</h5>
                   <ul>
@@ -80,30 +80,12 @@
     </div>
     <div id="bodyColumn">
       <div id="contentBox">
-        <div class="section"><h2>Storing output properties in the resource file<a name="Storing_output_properties_in_the_resource_file"></a></h2><p>The status properties can be stored to the file using the resource filtering mechanism.</p><p>Create the resource file <tt>src/main/resources/revision.txt</tt> containing references to the revision properties:</p><div class="source"><pre>repository = ${prefix.repository}
-path = ${prefix.path}
-revision = ${prefix.revision}
-mixedRevisions = ${prefix.mixedRevisions}
-committedRevision = ${prefix.committedRevision}
-status = ${prefix.status}
-specialStatus = ${prefix.specialStatus}
-</pre></div><p>Enable resource filtering:</p><div class="source"><pre>&lt;project&gt;
+        <div class="section"><h2>Adding the revision number to the project artifact name<a name="Adding_the_revision_number_to_the_project_artifact_name"></a></h2><p>The revision number (and other revision information) can be used as a part of the project artifact name. Remember to use the <tt>prefix.specialStatus</tt> property instead of the <tt>prefix.status</tt> property as the latter can contain symbols that are not allowed in the file names. </p><div class="source"><pre>&lt;project&gt;
     ...
     &lt;build&gt;
         ...
-        &lt;resources&gt;
-            &lt;resource&gt;
-                &lt;directory&gt;src/main/resources&lt;/directory&gt;
-                &lt;filtering&gt;true&lt;/filtering&gt;
-            &lt;/resource&gt;
-        &lt;/resources&gt;
-        ...
-    &lt;/build&gt;
-    ...
-&lt;/project&gt;
-</pre></div><p>Configure the plugin to generate output properties with the required prefix:</p><div class="source"><pre>&lt;project&gt;
-    ...
-    &lt;build&gt;
+        &lt;!-- &lt;finalName&gt;${project.artifactId}-${project.version}&lt;/finalName&gt; --&gt;
+        &lt;finalName&gt;${project.artifactId}-${project.version}-r${prefix.revision}${prefix.specialStatus}&lt;/finalName&gt;
         ...
         &lt;plugins&gt;
             &lt;plugin&gt;
@@ -130,7 +112,7 @@ specialStatus = ${prefix.specialStatus}
     &lt;/build&gt;
     ...
 &lt;/project&gt;
-</pre></div><p>More information on resource filtering can be found in the <a class="externalLink" href="http://maven.apache.org/plugins/maven-resources-plugin/index.html">Maven Resources Plugin</a> documentation.</p></div>
+</pre></div></div>
       </div>
     </div>
     <div class="clear">
