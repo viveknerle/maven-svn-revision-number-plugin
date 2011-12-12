@@ -37,7 +37,7 @@ The plugin declaration should be modified with additional forced dependency:
 </plugin>
 }}}
 
-The pom should be modified with additional repository declarations (snapshot repositories are required only if you decide to depend on svnkit:1.7.0-snaphot, depending on svnkit:1.7.0-alpha1 requires only release repositories):
+The pom should be modified with additional repository declarations:
 {{{
 <repositories>
     <repository>
