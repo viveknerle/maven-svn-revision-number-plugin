@@ -7,7 +7,7 @@ This plugin uses the SVNKit library (http://svnkit.com) for all subversion-relat
 
 Until the svnkit:1.7.0 is released there are two options that allow to use the revision number plugin with working copies in the SVN 1.7 format:
  # force the plugin (the latest "official" release google.code.maven-svn-revision-number-plugin:maven-svn-revision-number-plugin:1.7) to depend on the svnkit:1.7.0 snapshot or alpha and configure additional repositories (from TMate Software) where svnkit snapshots/alphas will be searched. The plugin itself will be resolved from the Maven Central.
- # switch to the new version of the plugin (google.code.maven-svn-revision-number-plugin:svn-revision-number-maven-plugin:1.8-SVN7) and configure additional repositories (from me) where this plugin version will be searched.
+ # switch to the new version of the plugin (google.code.maven-svn-revision-number-plugin:svn-revision-number-maven-plugin:1.8-SVN7) and configure additional repositories (from me, located inside the same svn as the plugin source code) where this "new" plugin version will be searched.
 
 Both options require the configuration of additional repositories and both options result in the same behaviour: the plugin will be able to retreive the revision and statis information from both SVN 1.6 and SVN 1.7 working copies.
 
