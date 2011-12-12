@@ -3,7 +3,7 @@
 
 = SVN 1.7 Support =
 
-This plugin uses the SVNKit library (http://svnkit.com) for all subversion-related operations. TMate Software, the creators of the SVNKit, are currently working on the new svnkit:1.7.0 which will support all SVN 1.7 features, but at the moment there is no official release yet and there is no 1.7-compatible release of the SVNKit in the maven central.
+This plugin uses the SVNKit library (http://svnkit.com) for all subversion-related operations. TMate Software, the creators of the SVNKit, are currently working on the new svnkit:1.7.0 which will support all SVN 1.7 features, but at the moment there is no official release yet and there is no 1.7-compatible release of the SVNKit in the Maven Central.
 
 Until the svnkit:1.7.0 is released there are two options that allow to use the revision number plugin with working copies in the SVN 1.7 format:
  # force the plugin (the latest "official" release google.code.maven-svn-revision-number-plugin:maven-svn-revision-number-plugin:1.7) to depend on the svnkit:1.7.0 snapshot or alpha and configure additional repositories (from TMate Software) where svnkit snapshots/alphas will be searched. The plugin itself will be resolved from the Maven Central.
