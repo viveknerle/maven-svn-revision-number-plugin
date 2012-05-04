@@ -75,7 +75,7 @@ The plugin declaration:
 <plugin>
     <groupId>com.google.code.maven-svn-revision-number-plugin</groupId>
     <artifactId>svn-revision-number-maven-plugin</artifactId> <!-- artifactId has changed! -->
-    <version>1.9-SVN7</version> <!-- the version has explicit svn-1.7-related suffix for now -->
+    <version>1.10-SVN7</version> <!-- the version has explicit svn-1.7-related suffix for now -->
     <executions>
         ...
     </executions>
