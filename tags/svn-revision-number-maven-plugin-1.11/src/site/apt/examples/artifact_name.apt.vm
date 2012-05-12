@@ -1,0 +1,49 @@
+    ---
+    Adding the revision number to the project artifact name
+    ---
+    Oleg Estekhin
+    ---
+    2012-04-20
+    ---
+    #set( $D = '$' )
+
+Adding the revision number to the project artifact name
+
+    The revision number (and other revision information) can be used as a part of the project artifact name.
+    Remember to use the <<<prefix.specialStatus>>> property instead of the <<<prefix.status>>> property as the latter can
+    contain symbols that are not allowed in the file names.
+
++---
+<project>
+    ...
+    <build>
+        ...
+        <!-- <finalName>${D}{project.artifactId}-${D}{project.version}</finalName> -->
+        <finalName>${D}{project.artifactId}-${D}{project.version}-r${D}{prefix.revision}${D}{prefix.specialStatus}</finalName>
+        ...
+        <plugins>
+            <plugin>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>${project.artifactId}</artifactId>
+                <version>${project.version}</version> <!-- please use the latest version -->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>revision</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <entries>
+                        <entry>
+                            <prefix>prefix</prefix>
+                        </entry>
+                    </entries>
+                </configuration>
+            </plugin>
+        </plugins>
+        ...
+    </build>
+    ...
+</project>
++---
