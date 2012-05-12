@@ -1,1 +1,1 @@
-oe.maven.plugins.revision
+com.google.code.maven_svn_revision_number_plugin
