@@ -25,7 +25,7 @@ public class GenerateParallelProject {
         }
         File basedir = new File( arguments[ 0 ] );
         int depth = arguments.length > 1 ? Integer.parseInt( arguments[ 1 ] ) : 2;
-        int children = arguments.length > 2 ? Integer.parseInt( arguments[ 2 ] ) : 5;
+        int children = arguments.length > 2 ? Integer.parseInt( arguments[ 2 ] ) : 3;
         String pluginVersion = arguments.length > 3 ? arguments[ 3 ] : "1.14-SNAPSHOT";
 
         Configuration configuration = new Configuration();
@@ -46,7 +46,7 @@ public class GenerateParallelProject {
             data.put( "projectId", projectId );
             data.put( "children", children );
             data.put( "pluginVersion", pluginVersion );
-            configuration.getTemplate( "aggregator.ftl" ).process( data, writer );
+            configuration.getTemplate( "AggregatorPom.ftl" ).process( data, writer );
         } finally {
             try {
                 writer.close();
@@ -75,7 +75,7 @@ public class GenerateParallelProject {
             data.put( "parentId", parentId );
             data.put( "projectId", projectId );
             data.put( "children", children );
-            configuration.getTemplate( "parent.ftl" ).process( data, writer );
+            configuration.getTemplate( "ParentPom.ftl" ).process( data, writer );
         } finally {
             try {
                 writer.close();
@@ -103,7 +103,31 @@ public class GenerateParallelProject {
             data.put( "groupId", groupId );
             data.put( "parentId", parentId );
             data.put( "projectId", projectId );
-            configuration.getTemplate( "leaf.ftl" ).process( data, writer );
+            configuration.getTemplate( "LeafPom.ftl" ).process( data, writer );
+        } finally {
+            try {
+                writer.close();
+            } catch ( IOException ignored ) {
+            }
+        }
+
+        String javaName = projectId.replace( '-', '_' );
+
+        File srcMain = new File( basedir, "src" + File.separator + "main" + File.separator + "java" + File.separator + javaName );
+        srcMain.mkdirs();
+        createClass( new File( srcMain, javaName + ".java" ), javaName, configuration, "LeafMainClass.ftl" );
+
+        File srcTest = new File( basedir, "src" + File.separator + "test" + File.separator + "java" + File.separator + javaName );
+        srcTest.mkdirs();
+        createClass( new File( srcTest, javaName + "Test.java" ), javaName, configuration, "LeafTestClass.ftl" );
+    }
+
+    private static void createClass( File file, String javaName, Configuration configuration, String templateName ) throws IOException, TemplateException {
+        Writer writer = new OutputStreamWriter( new FileOutputStream( file ), "UTF-8" );
+        try {
+            Map<String, Object> data = new HashMap<String, Object>();
+            data.put( "javaName", javaName );
+            configuration.getTemplate( templateName ).process( data, writer );
         } finally {
             try {
                 writer.close();
