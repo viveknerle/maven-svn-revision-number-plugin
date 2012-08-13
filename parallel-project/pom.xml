@@ -31,7 +31,7 @@
             <plugin>
                 <groupId>com.google.code.maven-svn-revision-number-plugin</groupId>
                 <artifactId>svn-revision-number-maven-plugin</artifactId>
-                <version>1.14-SNAPSHOT</version>
+                <version>1.13</version>
                 <executions>
                     <execution>
                         <goals>
