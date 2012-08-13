@@ -8,8 +8,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>parallel-1</module>
-        <module>parallel-2</module>
+        <module>extensions-vs-realms-1</module>
+        <module>extensions-vs-realms-2</module>
     </modules>
 
     <build>
